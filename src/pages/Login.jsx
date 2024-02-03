@@ -1,9 +1,19 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-import { Link } from "react-router-dom";
 import inputField from "../components/dataFields";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const history = useNavigate();
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      // Navigate to the next page
+      history.push("/Dashboard");
+    }
+  };
+
   return (
     <body className="App loginPage">
 
@@ -11,25 +21,29 @@ const Login = () => {
         <h1>GreenHealth Challenge!</h1> 
       </div>
 
+      
+        <h2 style = {{fontSize: 40}} >User Login</h2>
         <div>
-        <h2 style = {{fontSize: 40, margin: 30}} >User Login</h2>
         <div className="box">
-        <div>
-          <h3>Email Address:</h3>
-          <Placeholder placeholder="Email"></Placeholder>
-        </div>
-        <div>
-          <h3>Password:</h3>
-          <Placeholder placeholder="Password" ></Placeholder>
+          <div className="box div">
+            <h3>Email Address:</h3>
+            <Placeholder placeholder="Email"></Placeholder>
           </div>
-        <Link to="/Dashboard">
-          <span>
-            <button style = {{marginLeft: 500}}>Login</button>
-          </span>
-        </Link>
+
+          <div className= "box div" style = {{paddingleft: 5}}>
+            <h3>Password:</h3>
+            <Placeholder placeholder="Password" ></Placeholder>
+          </div>
+      
+          <div className="buttonbox">
+          <Link to="/Dashboard">
+            <button className="buttondesign" onKeyDown={handleKeyPress}>Login</button>
+          </Link>
+          </div>
+
       </div>
  </div>
-    </body>
+</body>
 
   );
 };
@@ -63,7 +77,6 @@ const Placeholder = styled.input`
   border-color: #000000;
   border-radius: 17px;
   shadow-radius: 0px;
-  margin-left: 20px;
   border-style: solid;
   background: transparent;
   box-shadow: 3px 3px 0px 0.01px rgba(0, 0, 0, 1);
