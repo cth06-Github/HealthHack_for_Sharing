@@ -1,16 +1,23 @@
+/*later edit the login routing if got time*/
+
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import inputField from "../components/dataFields";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+/*import Button from '../Button'; // Adjust the path based on your project structure*/
+import Button from '../components/Button'; // Adjust the path based on your project structure
+
 
 const Login = () => {
-  const history = useNavigate();
 
+  const history = useNavigate();
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       // Navigate to the next page
       history.push("/Dashboard");
+    } else if (event.key === "a") {
+      history.push("/Leaderboard")
     }
   };
 
@@ -36,9 +43,13 @@ const Login = () => {
           </div>
       
           <div className="buttonbox">
+
+          
           <Link to="/Dashboard">
-            <button className="buttondesign" onKeyDown={handleKeyPress}>Login</button>
-          </Link>
+            <Button>
+              Login
+            </Button>
+            </Link>
           </div>
 
       </div>

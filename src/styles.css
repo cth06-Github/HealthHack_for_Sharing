@@ -38,20 +38,6 @@ h1 {
   border: none; /*weird login button follows the thing*/
 }
 
-.buttonbox{
-  margin-left: 11;
-  align-items: right;
-  border: 22px solid #333;
-}
-
-.buttondesign{
-  border: 2px solid #333;
-  border-radius: 8px;
-  align-items: right;
-}
-
-
-
 .loginSelect {
   position: fixed;
   margin-top: -50px;
@@ -68,9 +54,65 @@ h1 {
   
 }
 
-.dashboard-container {
+.footer {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 8px;
+}
+
+.adminEqual {
+  display: flex;
+  height:90vh;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /*border: 5px solid #e63e3e;*/
+  border-radius: 8px;
+}
+
+.adminSubRow {
+  display: flex;
+  height:90vh;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /*border: 5px solid #543ee6;*/
+  border-radius: 8px;
+}
+
+.boxSide {
+  margin: auto;
+  display: flex;
+  padding: 10px 20px;
+  flex-direction: row;
+  width: 70%;
+  /*border: 5px solid #333;*/
+  border-radius: 8px;
+  padding:1px;
+}
+
+.iconSide {
+  margin: auto;
+  display: flex;
+  padding: 10px 20px;
+  flex-direction: row;
+  width: 100%;
+  /*border: 5px solid #caed2e;*/
+  justify-content: space-between;
+  border-radius: 8px;
+  padding:1px;
+}
+
+.boxWithin {
+  margin: auto;
+  display: flex;
+  padding: 10px 20px;
+  flex-direction: column;
+  border: 5px solid #40dec4;
+  border-radius: 8px;
+}
+
+.upload{
+  text-align: left;
 }
 
 .widget {

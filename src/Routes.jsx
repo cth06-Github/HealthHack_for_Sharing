@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import Leaderboard from "./pages/Leaderboard";
-//import Admin from "./pages/Admin";
+import Board from "./pages/Board";
+import Admin from "./pages/Admin";
 
 const routes = [
   {
@@ -14,14 +14,14 @@ const routes = [
     component: <Dashboard />,
   },
   {
-    path: "/Leaderboard",
-    component: <Leaderboard />,
+    path: "/Board",
+    component: <Board />,
   },
-  /*
+  
   {
     path: "/Admin",
     component: <Admin />,
-  },*/
+  },
 ];
 
 const RouteSwitch = () => {
