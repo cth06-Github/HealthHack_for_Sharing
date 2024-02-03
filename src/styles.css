@@ -17,7 +17,42 @@ h1 {
   margin: 0; /*cnanot toher values?*/
 }
 
-.loginSect {
+.box {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  border: 5px solid #333;
+  border-radius: 8px;
+  padding:1px;
+}
+
+.box div {
+  text-align: left;
+  margin: 0;
+  padding-top:0;
+  padding-bottom:3%;
+  padding-left: 5%;
+  width: 100%;
+  display: flex;
+  border: none; /*weird login button follows the thing*/
+}
+
+.buttonbox{
+  margin-left: 11;
+  align-items: right;
+  border: 22px solid #333;
+}
+
+.buttondesign{
+  border: 2px solid #333;
+  border-radius: 8px;
+  align-items: right;
+}
+
+
+
+.loginSelect {
   position: fixed;
   margin-top: -50px;
   border-style:solid;
@@ -25,8 +60,7 @@ h1 {
   top: 50%;
   left: 50%;
   margin-top: -50px;
-  margin-left: -100px;
-  border-style:solid;
+  padding-left: 100px;
 }
 
 .headerRow {
