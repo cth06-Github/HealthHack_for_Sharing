@@ -42,7 +42,7 @@ function Board() {
     </Link>
 
     <Link to="/Dashboard">
-      <Button>Dashboard</Button>
+      <Button >Dashboard</Button>
     </Link>
   </div>
 
