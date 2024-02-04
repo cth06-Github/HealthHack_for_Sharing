@@ -1,22 +1,21 @@
-import React from 'react'
+/*import React from 'react'
+import { data } from './Admin'
 
-export default function profiles({ Leaderboard }) {
+export default function profiles({ data }) {
   return (
         <div id="profile">
-            {Item(Leaderboard)}
+            {Item(data)}
         </div>
   )
 }
 
 function Item(data){
     return (
-
         <>
             {
                 data.map((value, index) => (
                     <div className="flex" key={index}>
                         <div className="item">
-                            <img src={value.img} alt="" />
             
                             <div className="info">
                                 <h3 className='name text-dark'>{value.name}</h3>    
@@ -34,4 +33,4 @@ function Item(data){
 
         
     )
-}
+}*/

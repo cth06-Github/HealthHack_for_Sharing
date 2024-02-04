@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as XLSX from 'xlsx';
 import Button from '../components/Button'; 
 import { useNavigate } from 'react-router-dom';
@@ -10,46 +10,49 @@ import dashboardDemo from "../images/dashboardDemo.png";
 
 
 const Admin = () => {
-  let selectedFile;
+    const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleFileChange = (event) => {
-    selectedFile = event.target.files[0];
-  };
-
-  const handleConvertClick = () => {
-    if (selectedFile) {
-      const fileReader = new FileReader();
-      fileReader.onload = function (event) {
-        const data = event.target.result;
-
-        const workbook = XLSX.read(data, { type: 'binary' });
-        workbook.SheetNames.forEach((sheet) => {
-          const rowObject = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheet]);
-          const jsonObject = JSON.stringify(rowObject);
-          document.getElementById('jsonData').innerHTML = jsonObject;
-          console.log(jsonObject);
+    const handleFileChange = (event) => {
+      // Update the state with the selected file
+      setSelectedFile(event.target.files[0]);
+    };
+  
+    const handleUpload = () => {
+      // Implement the logic to send the file to the server (Flask)
+      const formData = new FormData();
+      
+      formData.append("file", selectedFile);
+  
+      fetch("http://127.0.0.1:5000/", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("File uploaded successfully:", data);
+        })
+        .catch((error) => {
+          console.error("Error uploading file:", error);
         });
-      };
 
-      fileReader.readAsBinaryString(selectedFile);
-    }
-  };
+    };
 
-  const { inputValue, setInput } = useData();
+    //const dataa = handleUpload();
 
-  const handleInputChange = (event) => {
-    setInput(event.target.value);
-  };
+    const { inputValue, setInput } = useData();
 
-  const handleSubmit = () => {
-    // You can perform any additional logic here before setting the input
-    setInput(inputValue);
-  };
-
-  const clearInput = () => {
-    setInput('');
-  };
-
+    const handleInputChange = (event) => {
+      setInput(event.target.value);
+    };
+  
+    const handleSubmit = () => {
+      // You can perform any additional logic here before setting the input
+      setInput(inputValue);
+    };
+  
+    const clearInput = () => {
+      setInput('');
+    };
   
   return (
     <div className = "adminEqual">
@@ -62,10 +65,12 @@ const Admin = () => {
                     <br></br>
                     <br></br>
                         <div>
-                            <input type="file" id="fileUpload" accept=".xls,.xlsx" onChange={handleFileChange} /><br />
+                        <input type="file" accept=".csv" onChange={handleFileChange} />
                         </div>
                         <div>
-                            <button type="button" id="uploadExcel" onClick={handleConvertClick}>Convert</button>
+                        <button onClick={handleUpload}>Upload</button>
+                        </div>
+                        <div>
                         </div>
                         <br></br>
                     <br></br>
@@ -73,7 +78,6 @@ const Admin = () => {
                     
                 </div>  
             </div>
-            <pre id="jsonData"></pre>
 
             <div className = "boxSide">
                 <div className = "boxWithin">
@@ -96,10 +100,6 @@ const Admin = () => {
                             </div>
                         </div>
                     </div>
-
-
-
-
                     </div>
             </div>
         </div>
@@ -120,6 +120,7 @@ const Admin = () => {
 
     </div>
   );
+
 };
 
 export default Admin;
