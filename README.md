@@ -1,0 +1,1 @@
+This is a web application built during a hackathon called Health Hack 2024 organised by National University of Singapore. This app aims to to have features such as leaderboard and posting of weekly challenges to encourage healthcare professionals in the hospitals to integrate eco-friendly practices through gamification.
